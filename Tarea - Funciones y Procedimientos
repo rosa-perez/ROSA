@@ -1,0 +1,13 @@
+def palabra_mas_larga(texto):
+    palabras = texto.split() 
+    palabra_larga = "" 
+
+    for p in palabras:
+        if len(p) > len(palabra_larga):
+            palabra_larga = p  
+
+    return palabra_larga
+
+frase = "QUE SEA LO QUE DIOS QUIERA, PERO QUE DIOS QUIERA LO QUE YO QUIERO, QUE ES PASAR LA MATERIA"
+resultado = palabra_mas_larga(frase)
+print("La palabra más larga es:", resultado)    
