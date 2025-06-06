@@ -1,0 +1,48 @@
+tipo_cambio = 7.8  # Dólares a quetzales
+
+while True:
+    print("\nMENU DE OPCIONES")
+    print("1. Registro de ventas")
+    print("2. Conversión de divisas")
+    print("3. Cálculo de intereses")
+    print("4. Salir")
+
+    opcion = input("Escriba el número de la opción que quiere usar: ")
+
+    if opcion == "1":
+        precio = input("Precio del producto: ")
+        cantidad = input("Cantidad vendida: ")
+        total = float(precio) * int(cantidad)
+        print("El total de ventas es: Q.", total)
+
+    elif opcion == "2":
+        moneda = input("Moneda que tiene (solo dólar funciona): ")
+        if moneda == "dólar":
+            monto = input("Monto a convertir: ")
+            resultado = float(monto) * tipo_cambio
+            print("En quetzales es: Q.", resultado)
+        else:
+            print("Solo se puede convertir desde dólares.")
+
+    elif opcion == "3":
+        dias = input("Días de retraso: ")
+        cantidad_stands = input("Cantidad de stands alquilados: ")
+        dias = int(dias)
+        cantidad_stands = int(cantidad_stands)
+        precio_stand = 300
+
+        if dias <= 2:
+            total = cantidad_stands * precio_stand
+            print("Total sin mora: Q.", total)
+        else:
+            mora = dias - 2
+            total_base = cantidad_stands * precio_stand
+            total_mora = total_base * (1 + 0.02) ** mora
+            print("Total con mora: Q.", round(total_mora, 2))
+
+    elif opcion == "4":
+        print("Gracias por usar el programa. ¡Adiós!")
+        break  # Salir del bucle y terminar el programa
+
+    else:
+        print("Opción inválida, intenta otra vez.")
